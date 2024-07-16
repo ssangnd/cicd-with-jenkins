@@ -39,27 +39,27 @@ pipeline{
         // }
 
                 // Stage3 : Publish the artifacts to Nexus
-        // stage ('Publish to Nexus'){
-        //     steps {
-        //         script {
+        stage ('Publish to Nexus'){
+            steps {
+                script {
 
-        //         def NexusRepo = Version.endsWith("SNAPSHOT") ? "VinaysDevOpsLab-SNAPSHOT" : "VinaysDevOpsLab-RELEASE"
+                def NexusRepo = Version.endsWith("SNAPSHOT") ? "VinaysDevOpsLab-SNAPSHOT" : "VinaysDevOpsLab-RELEASE"
 
-        //         nexusArtifactUploader artifacts: 
-        //         [[artifactId: "${ArtifactId}", 
-        //         classifier: '', 
-        //         file: "target/${ArtifactId}-${Version}.war", 
-        //         type: 'war']], 
-        //         credentialsId: '6ca91e13-aaa7-4655-a02d-3a68119826fb', 
-        //         groupId: "${GroupId}", 
-        //         nexusUrl: '54.176.170.115:8081', 
-        //         nexusVersion: 'nexus3', 
-        //         protocol: 'http', 
-        //         repository: "${NexusRepo}", 
-        //         version: "${Version}"
-        //      }
-        //     }
-        // }
+                nexusArtifactUploader artifacts: 
+                [[artifactId: "${ArtifactId}", 
+                classifier: '', 
+                file: "target/${ArtifactId}-${Version}.war", 
+                type: 'war']], 
+                credentialsId: 'a4e4aacf-d974-4664-8ae0-663aea9691eb', 
+                groupId: "${GroupId}", 
+                nexusUrl: '54.176.170.115:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: "${NexusRepo}", 
+                version: "${Version}"
+             }
+            }
+        }
 
 
          // Stage 4 : Print some information
